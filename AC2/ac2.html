@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <h1>Feedback para o perfil de Arthur</h1>
+
+    <form action="/submit" method="post">
+        <h2>Dados pessoais</h2>
+        <fieldset>
+            <legend>Suas informações Pessoais</legend>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome"><br>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Como achou esse perfil?</legend>
+            <label for="perfil"></label>
+            <input type="text" id="perfil" name="perfil" required>
+        </fieldset>
+
+        <h2>Feedback</h2>
+
+        <fieldset>
+            <legend>Você gostou do perfil?</legend>
+
+            <input type="radio" id="sim" name="resposta" value="sim">
+            <label for="sim">Sim</label>
+
+            <input type="radio" id="nao" name="resposta" value="nao">
+            <label for="nao">Não</label>
+
+            <input type="radio" id="talvez" name="resposta" value="talvez">
+            <label for="talvez">Talvez</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>O que gostou no meu perfil?</legend>
+            <input type="checkbox" id="Design" name="qualidades" value="Design">
+            <label for="Design">Design</label>
+            <input type="checkbox" id="Conteúdo" name="qualidades" value="Conteúdo">
+            <label for="Conteúdo">Conteúdo</label>
+            <input type="checkbox" id="Outros" name="qualidades" value="Outros">
+            <label for="Outros">Outros</label>
+        </fieldset>
+
+        <button type="submit">Enviar</button><br><br><button type="reset">Limpar</button>
+
+    </form>
+
+    <footer>
+        <h2>Obrigado pela atenção!</h2>
+    </footer>
+
+</body>
+
+</html>
