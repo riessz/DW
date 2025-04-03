@@ -1,0 +1,173 @@
+h1 {
+    text-align: center;
+    color: #008000;
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+
+header {
+    background-color: #32CD32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #008000;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+}
+
+form {
+    background-color: #FFFFE0;
+    border: 2px solid #008000;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+fieldset {
+    border: 2px solid #008000;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #008000;
+    font-size: 1.2em;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #006400;
+
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #008000;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #FFFACD;
+
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #228B22;
+}
+
+button[type="reset"] {
+    background-color: #FFD700;
+    color: black;
+}
+
+button[type="reset"]:hover {
+    background-color: #DAA520;
+}
+
+table {
+    width: 100%;
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: #FFFFE0;
+    font-family: Arial, sans-serif;
+}
+
+td,
+th {
+    border: 2px solid black;
+    text-align: center;
+}
+
+th {
+    background-color: #32CD32;
+    font-weight: bold;
+}
+
+td {
+    background-color: #FFFACD;
+}
+
+tr:nth-child(even) td {
+    background-color: #F0E68C;
+}
+
+/* Adaptando para tablets  */
+@media (max-width: 900px) {
+    table {
+        font-size: 0.9em; 
+    }
+
+    td,
+    th {
+        padding: 8px; 
+    }
+}
+
+/** Adaptando para celulares  */
+@media (max-width: 600px) {
+    table {
+        border: none; 
+        width: 100%;
+    }
+
+    thead {
+        display: none; 
+    }
+
+    tr {
+        display: block; 
+        margin-bottom: 15px; 
+    }
+
+    td {
+        display: block; 
+        text-align: right; 
+        padding: 10px;
+        border: none; 
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #006400; 
+    }
+
+    td:first-child {
+        border-top: 2px solid #008000; 
+    }
+
+    td:last-child {
+        border-bottom: 2px solid #008000; 
+    }
+}

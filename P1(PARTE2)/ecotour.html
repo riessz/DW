@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="P1(PARTE2)/ecotour.css">
+    <title>EcoTour Brasil</title>
+</head>
+
+<body>
+    <header>
+        <h1>EcoTour Brasil</h1>
+    </header>
+    <h1>Fale conosco!</h1>
+    <form action="/submit" method="post">
+        <fieldset>
+            <legend>Informações Pessoais</legend>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome"><br>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Mensagem</legend>
+            <label for="mensagem">Sua mensagem:</label><br>
+            <textarea id="mensagem" name="mensagem" rows="5" cols="40"
+                placeholder="Digite sua mensagem aqui..."></textarea>
+        </fieldset>
+
+        <button type="submit">Enviar</button><br><button type="reset">Limpar</button>
+
+        <h2>Pacotes Disponíveis</h2>
+        <table>
+            <tr>
+                <td data-label="Destino">Fernando de Noronha</td>
+                <td data-label="Preço">R$ 3200,00</td>
+            </tr>
+            <tr>
+                <td data-label="Destino">Passeio na Amazônia</td>
+                <td data-label="Preço">R$ 3000,00</td>
+            </tr>
+            <tr>
+                <td data-label="Destino">Praias do Nordeste</td>
+                <td data-label="Preço">R$ 2800,00</td>
+            </tr>
+        </table>
+        </div>
+</body>
+
+</html>
