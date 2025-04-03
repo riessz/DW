@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="P1(PARTE2)/ecotour.css">
+    <link rel="stylesheet" href="ecotour.css">
     <title>EcoTour Brasil</title>
 </head>
 
@@ -12,12 +12,12 @@
     <header>
         <h1>EcoTour Brasil</h1>
     </header>
-    <h1>Fale conosco!</h1>
+    <h2>Fale conosco!</h2>
     <form action="/submit" method="post">
         <fieldset>
             <legend>Informações Pessoais</legend>
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome"><br>
+            <input type="text" id="nome" name="nome">
 
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
@@ -25,19 +25,27 @@
 
         <fieldset>
             <legend>Mensagem</legend>
-            <label for="mensagem">Sua mensagem:</label><br>
+            <label for="mensagem">Sua mensagem:</label>
             <textarea id="mensagem" name="mensagem" rows="5" cols="40"
                 placeholder="Digite sua mensagem aqui..."></textarea>
         </fieldset>
 
-        <button type="submit">Enviar</button><br><button type="reset">Limpar</button>
+        <div class="button-container">
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+        </div>
+    </form>
 
-        <h2>Pacotes Disponíveis</h2>
-        <table>
+    <h2>Pacotes Disponíveis</h2>
+    <table>
+        <thead>
             <tr>
-                <td data-label="Destino">Fernando de Noronha</td>
-                <td data-label="Preço">R$ 3200,00</td>
+                <th>Destino</th>
+                <th>Preço</th>
             </tr>
+        </thead>
+        <tbody>
+
             <tr>
                 <td data-label="Destino">Passeio na Amazônia</td>
                 <td data-label="Preço">R$ 3000,00</td>
@@ -46,8 +54,13 @@
                 <td data-label="Destino">Praias do Nordeste</td>
                 <td data-label="Preço">R$ 2800,00</td>
             </tr>
-        </table>
-        </div>
+            <tr>
+                <td data-label="Destino">Fernando de Noronha</td>
+                <td data-label="Preço">R$ 3200,00</td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 
 </html>
