@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestSmart - Apoio à Decisão de Investimentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>InvestSmart</h1>
+                <p>Seu guia para investimentos inteligentes</p>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#" class="active" id="home-link">Questionário</a></li>
+                    <li><a href="#" id="economic-data-link">Dados Econômicos</a></li>
+                    <li><a href="#" id="investments-link">Investimentos</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content - Questionário -->
+    <main class="main-content" id="questionario-section">
+        <section class="quiz-container">
+            <div class="quiz-progress">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" id="progress-bar"></div>
+                    <div class="progress-steps">
+                        <span class="step active">1</span>
+                        <span class="step">2</span>
+                        <span class="step">3</span>
+                        <span class="step">4</span>
+                        <span class="step">5</span>
+                    </div>
+                </div>
+
+                <!-- Slide 1: Boas-vindas -->
+                <div class="slide active-slide" id="slide-1">
+                    <h2>Bem-vindo ao InvestSmart</h2>
+                    <p>Vamos ajudar você a tomar decisões de investimento mais informadas com base no seu perfil.</p>
+                    <p>Responda nosso questionário rápido para receber recomendações personalizadas.</p>
+                    <button class="btn next-btn" onclick="nextSlide()">Começar</button>
+                </div>
+
+                <!-- Slide 2: Conhecimento sobre investimentos -->
+                <div class="slide" id="slide-2">
+                    <h2>Qual seu conhecimento sobre investimentos?</h2>
+                    <div class="error-message" id="error-slide-2"></div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="knowledge" value="beginner" required>
+                            <span>Iniciante - Estou começando agora</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="knowledge" value="intermediate" required>
+                            <span>Intermediário - Já tenho alguma experiência</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="knowledge" value="advanced" required>
+                            <span>Avançado - Invisto regularmente</span>
+                        </label>
+                    </div>
+                    <div class="slide-buttons">
+                        <button class="btn prev-btn" onclick="prevSlide()">Voltar</button>
+                        <button class="btn next-btn" onclick="nextSlide()">Próximo</button>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Objetivo principal -->
+                <div class="slide" id="slide-3">
+                    <h2>Qual seu objetivo principal com os investimentos?</h2>
+                    <div class="error-message" id="error-slide-3"></div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="goal" value="protection" required>
+                            <span>Preservação de capital - Quero proteger meu dinheiro da inflação</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="goal" value="income" required>
+                            <span>Geração de renda - Quero complementar minha renda mensal</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="goal" value="growth" required>
+                            <span>Crescimento - Quero multiplicar meu capital no longo prazo</span>
+                        </label>
+                    </div>
+                    <div class="slide-buttons">
+                        <button class="btn prev-btn" onclick="prevSlide()">Voltar</button>
+                        <button class="btn next-btn" onclick="nextSlide()">Próximo</button>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Tempo de investimento -->
+                <div class="slide" id="slide-4">
+                    <h2>Por quanto tempo você pretende deixar o dinheiro investido?</h2>
+                    <div class="error-message" id="error-slide-4"></div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="time" value="short" required>
+                            <span>Até 1 ano (curto prazo)</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="time" value="medium" required>
+                            <span>De 1 a 5 anos (médio prazo)</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="time" value="long" required>
+                            <span>Mais de 5 anos (longo prazo)</span>
+                        </label>
+                    </div>
+                    <div class="slide-buttons">
+                        <button class="btn prev-btn" onclick="prevSlide()">Voltar</button>
+                        <button class="btn next-btn" onclick="nextSlide()">Próximo</button>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Valor a investir -->
+                <div class="slide" id="slide-5">
+                    <h2>Qual valor você pretende investir inicialmente?</h2>
+                    <div class="error-message"></div>
+                    <div class="input-group">
+                        <span>R$</span>
+                        <input type="text" id="investment-value" class="dinheiro" required placeholder="Insira um valor"
+                            min="0" step="100">
+                    </div>
+                    <div class="slide-buttons">
+                        <button class="btn prev-btn" onclick="prevSlide()">Voltar</button>
+                        <button class="btn next-btn" onclick="nextSlide()">Próximo</button>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Formulário de Contato -->
+                <div class="slide" id="slide-6">
+                    <h2>Preencha seus dados para receber os resultados!</h2>
+                    <div class="error-message" id="error-slide-6"></div>
+                    <form id="contact-form" autocomplete="off" onsubmit="event.preventDefault(); nextSlide();">
+                        <div class="form-group">
+                            <label for="user-name">Nome:</label>
+                            <input type="text" id="user-name" name="user-name" required placeholder="Seu nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-email">E-mail:</label>
+                            <input type="email" id="user-email" name="user-email" required
+                                placeholder="exemplo@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-phone">Telefone:</label>
+                            <input type="text" id="user-phone" name="user-phone" required placeholder="11999999999"
+                                maxlength="11">
+                        </div>
+                        <div class="slide-buttons">
+                            <button class="btn prev-btn" type="button" onclick="prevSlide()">Voltar</button>
+                            <button class="btn next-btn" type="submit">Próximo</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Slide 7: Resultado -->
+                <div class="slide" id="slide-7">
+                    <h2>Resultado: Seu Perfil de Investidor</h2>
+                    <div class="result-container">
+                        <div class="profile-result">
+                            <div class="profile-type" id="profile-type">
+                                <h3>Moderado</h3>
+                                <p>Equilíbrio entre risco e retorno</p>
+                            </div>
+                            <div class="profile-description" id="profile-description">
+                                <p>Você está disposto a assumir algum risco para obter retornos melhores que a poupança,
+                                    mas
+                                    prefere investimentos mais estáveis.</p>
+                            </div>
+                        </div>
+
+                        <div class="recommendations">
+                            <h3>Recomendações para seu perfil</h3>
+                            <div class="recommendation-chart">
+                                <!-- Este gráfico seria gerado por JavaScript -->
+                                <div class="chart-placeholder">
+                                    <canvas id="economic-chart" width="400" height="200"></canvas>
+                                </div>
+                            </div>
+                            <div class="recommendation-list">
+                                <div class="recommendation-item">
+                                    <h4>Tesouro IPCA+ 2026</h4>
+                                    <p>Renda Fixa | Risco Baixo | Liquidez Diária</p>
+                                </div>
+                                <div class="recommendation-item">
+                                    <h4>ETF BOVA11</h4>
+                                    <p>Renda Variável | Risco Moderado | Ibovespa</p>
+                                </div>
+                                <div class="recommendation-item">
+                                    <h4>CDB Banco XYZ 110% CDI</h4>
+                                    <p>Renda Fixa | Risco Baixo | 2 anos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-buttons">
+                        <button class="btn prev-btn" onclick="prevSlide()">Voltar</button>
+                        <button class="btn restart-btn" onclick="restartQuiz()">Refazer Questionário</button>
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <!-- Main Content - Dados Econômicos  -->
+    <main class="main-content hidden" id="economic-data-section">
+        <section class="data-section">
+            <h2>Dados Econômicos Atuais</h2>
+            <div class="data-table-container">
+                <table class="data-table" id="economic-data-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Indicador</th>
+                            <th>Valor</th>
+                            <th>Variação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados serão preenchidos via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-placeholder">
+                <canvas id="economic-api-chart" width="400" height="200"></canvas>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Main Content - Investimentos  -->
+    <main class="main-content hidden" id="investments-section">
+        <section class="data-section">
+            <h2>Comparativo de Investimentos</h2>
+
+            </div>
+            <div class="data-table-container">
+                <table class="data-table" id="investments-table">
+                    <thead>
+                        <tr>
+                            <th>Investimento</th>
+                            <th>Tipo</th>
+                            <th>Rent. 12m</th>
+                            <th>Risco</th>
+                            <th>Liquidez</th>
+                            <th>Mínimo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados serão preenchidos via JavaScript -->
+                    </tbody>
+                </table>
+                <div class="chart-placeholder">
+                    <canvas id="investments-chart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3>InvestSmart</h3>
+                <p>Uma empresa do incrível CEO e empresário Arthur Riess, auxiliando você desde 2025.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> investmentsmart@hotmail.com</p>
+                <p><i class="fas fa-phone"></i> (21) 99999-0101</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 InvestSmart. Todos os direitos reservados.</p>
+            <p><a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--Importando chart.js para gráficos-->
+</body>
+
+</html>

@@ -1,0 +1,537 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.next-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.prev-btn {
+    background-color: #f0f0f0;
+    color: #333;
+    margin-right: 10px;
+}
+
+.restart-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilo Header */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.logo p {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav ul li a:hover,
+.nav ul li a.active {
+    background-color: #34495e;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Estilo Main */
+.main-content {
+    padding: 30px 0;
+    min-height: calc(100vh - 120px);
+}
+
+/* Estilo Quiz com slides */
+.quiz-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz-progress {
+    margin-bottom: 30px;
+}
+
+/* Barra de progresso cinza com preenchimento verde */
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    /* cinza claro */
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #27ae60;
+    /* verde */
+    transition: width 0.4s;
+    border-radius: 4px 0 0 4px;
+}
+
+.progress-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 20%;
+    background-color: #4CAF50;
+    transition: width 0.5s ease;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-steps .step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.progress-steps .step.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.slide {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.slide.active-slide {
+    display: block;
+}
+
+.slide h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Mensagem de erro do quiz */
+.error-message {
+    color: #c0392b;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: none;
+}
+
+/* Formulário do slide */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:invalid {
+    border-color: #e67e22;
+}
+
+.options {
+    margin: 30px 0;
+}
+
+.option {
+    display: block;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    border-color: #4CAF50;
+    background-color: #f8f9fa;
+}
+
+.option input {
+    margin-right: 10px;
+}
+
+.slide-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.input-group span {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.input-group input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 200px;
+}
+
+/* Estilo Resultados */
+.result-container {
+    margin-top: 20px;
+}
+
+.profile-result {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.profile-type {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-type h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.profile-type p {
+    color: #7f8c8d;
+}
+
+.profile-description {
+    text-align: center;
+}
+
+.recommendations {
+    margin-top: 40px;
+}
+
+.recommendation-chart {
+    height: 300px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    border: 1px dashed #ddd;
+}
+
+.recommendation-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.recommendation-item {
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.recommendation-item h4 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.recommendation-item p {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* Graficos e data */
+.data-section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.data-section h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.data-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.data-filters select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.data-table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.data-table tr:hover {
+    background-color: #f5f7fa;
+}
+    
+/* Estilo Footer */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.social-links a:hover {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Animações entre slides */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 600px) {
+    .container {
+        width: 98%;
+        padding: 0 5px;
+    }
+
+    .header {
+        padding: 10px 0;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+
+    .main-content {
+        padding: 15px 0;
+    }
+
+    .quiz-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .slide h2 {
+        font-size: 1.1rem;
+    }
+
+    .option {
+        padding: 8px;
+        font-size: 0.95rem;
+    }
+
+    .slide-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .recommendation-list {
+        grid-template-columns: 1fr;
+    }
+
+    .data-section {
+        padding: 15px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px 6px;
+        font-size: 0.95rem;
+    }
+
+    .footer {
+        padding: 20px 0 10px;
+    }
+
+    .footer .container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+.chart-placeholder {
+    width: 100%;
+    overflow-x: auto;
+}
+.chart-placeholder canvas {
+    max-width: 100%;
+    height: auto;
+}
